@@ -39,7 +39,7 @@ You can see the api documentation and can execute test calls from the Swagger UI
 
 ## How to test Api using .http file
 
-`Company.Api` folder contains a [Company.Api.http](Company.Api\Company.Api.http) file. You can use it
+`Company.Api` folder contains a [Company.Api.http](Company.Api/Company.Api.http) file. You can use it
 to test the apis using Visual Studio or VS Code with the 
 [REST Client](https://marketplace.visualstudio.com/items?itemName=humao.rest-client) extension installed.
 Simply open the file with one of the above IDEs and you can execute the requests, as described in the file.
