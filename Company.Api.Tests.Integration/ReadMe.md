@@ -68,7 +68,7 @@ Add authentication code to secure the api
 
 ## Running the tests
 
-See the  [Company.Api/ReadMe.md](../ReadMe.md) for instructions on how to run bothe the api, and the tests.
+See the  [Company.Api/ReadMe.md](../README.md) for instructions on how to run bothe the api, and the tests.
 
 
 ## Benefits of api contract-level Integration over Unit testing 
