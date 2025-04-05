@@ -1,0 +1,63 @@
+### Collection of http request for testing the Company.Api. 
+### Run the solution and execute below requests. Alternatively, 
+### you can use Swagger UI at https://localhost:5001/swagger
+
+@baseUrl = https://localhost:5001
+
+### Before calling any authorized endpoint, you must execute 
+### POST /login below, to obtain a valid token
+# @name Login
+POST {{baseUrl}}/v1/login
+Content-Type: application/json
+
+{"name":"user","password":"Qqqq11111!"}
+
+### Ping (Health Check)
+GET {{baseUrl}}/v1/ping
+Accept: application/json
+
+### Retrieve all companies
+GET {{baseUrl}}/v1/companies
+Accept: application/json
+Authorization: Bearer {{Login.response.body.$.token}}
+
+### Retrieve company by id
+GET {{baseUrl}}/v1/companies/58902da3-be07-4323-96c7-5a3bf7637af2
+Accept: application/json
+Authorization: Bearer {{Login.response.body.$.token}}
+
+### Retrieve Company by ISIN
+GET {{baseUrl}}/v1/companies/isin/US0123499999
+Accept: application/json
+Authorization: Bearer {{Login.response.body.$.token}}
+
+### Create company
+POST {{baseUrl}}/v1/companies
+Content-Type: application/json
+Authorization: Bearer {{Login.response.body.$.token}}
+
+{
+  "name": "Pen Pineaple Apple",
+  "isin": "US0123499999",
+  "exchange": "NASDAQ",
+  "stockticker": "AAPL",
+  "website":"https://www.ppa.com"
+}
+
+### Update company
+PUT {{baseUrl}}/v1/companies/61319bcd-6800-4cdd-9d27-90187a521733
+Content-Type: application/json
+Authorization: Bearer {{Login.response.body.$.token}}
+
+{
+  "isin": "DE000PAH0038",
+  "name": "Porsche Automobil",
+  "stockTicker": "PAH3",
+  "exchange": "Deutsche Börse",
+  "website": "https://www.porsche.com/"
+}
+
+### Delete company
+DELETE {{baseUrl}}/v1/companies/e95fe7c7-41e3-4ab6-9223-c90053152e85
+Accept: application/json
+Authorization: Bearer {{Login.response.body.$.token}}
